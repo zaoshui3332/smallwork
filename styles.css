@@ -205,6 +205,19 @@ h2 {
   content: "¥";
 }
 
+.book-rating {
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.book-date {
+  color: var(--muted);
+}
+
+.book-field {
+  color: #344054;
+}
+
 button {
   min-height: 34px;
   padding: 6px 11px;

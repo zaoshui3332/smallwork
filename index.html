@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>中文图书目录</title>
-  <meta name="description" content="基于本地 JSON 数据生成的中文图书目录页面">
+  <title>&#20013;&#25991;&#22270;&#20070;&#30446;&#24405;</title>
+  <meta name="description" content="Book list generated from local JSON data">
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
@@ -12,38 +12,38 @@
     <div class="header-inner">
       <div>
         <p class="eyebrow">Book Dataset</p>
-        <h1>中文图书目录</h1>
+        <h1>&#20013;&#25991;&#22270;&#20070;&#30446;&#24405;</h1>
       </div>
-      <nav class="site-nav" aria-label="页面导航">
-        <a href="#book-table-section">图书表格</a>
-        <a href="#category-section">类型统计</a>
-        <a href="./data/books_1000_chinese_titles.json">原始数据</a>
+      <nav class="site-nav" aria-label="navigation">
+        <a href="#book-table-section">&#22270;&#20070;&#34920;&#26684;</a>
+        <a href="#category-section">&#31867;&#22411;&#32479;&#35745;</a>
+        <a href="./data/books_1000_enriched.json">&#21407;&#22987;&#25968;&#25454;</a>
       </nav>
     </div>
   </header>
 
   <main class="page-shell">
-    <section class="toolbar" aria-label="筛选工具">
+    <section class="toolbar" aria-label="filters">
       <div class="metric">
-        <span class="metric-label">总数据</span>
+        <span class="metric-label">&#24635;&#25968;&#25454;</span>
         <strong id="total-count">0</strong>
       </div>
       <div class="metric">
-        <span class="metric-label">当前结果</span>
+        <span class="metric-label">&#24403;&#21069;&#32467;&#26524;</span>
         <strong id="filtered-count">0</strong>
       </div>
       <label class="control search-control">
-        <span>搜索</span>
-        <input id="search-input" type="search" placeholder="书名或作者" autocomplete="off">
+        <span>&#25628;&#32034;</span>
+        <input id="search-input" type="search" placeholder="Title / author / year" autocomplete="off">
       </label>
       <label class="control">
-        <span>类型</span>
+        <span>&#31867;&#22411;</span>
         <select id="category-filter">
-          <option value="">全部类型</option>
+          <option value="">&#20840;&#37096;&#31867;&#22411;</option>
         </select>
       </label>
       <label class="control small-control">
-        <span>每页</span>
+        <span>&#27599;&#39029;</span>
         <select id="page-size">
           <option value="20">20</option>
           <option value="50" selected>50</option>
@@ -56,32 +56,25 @@
       <div class="section-heading">
         <div>
           <p class="eyebrow">Crawler Friendly</p>
-          <h2>图书表格</h2>
+          <h2>&#22270;&#20070;&#34920;&#26684;</h2>
         </div>
-        <div id="page-info" class="page-info">第 1 页</div>
+        <div id="page-info" class="page-info"></div>
       </div>
 
       <div class="table-wrap">
         <table id="books-table" class="books-table">
-          <caption>中文图书数据表</caption>
+          <caption>book data table</caption>
           <thead>
-            <tr>
-              <th scope="col">ID</th>
-              <th scope="col">书名</th>
-              <th scope="col">作者</th>
-              <th scope="col">类型</th>
-              <th scope="col">价格</th>
-              <th scope="col">详情</th>
-            </tr>
+            <tr id="book-table-head"></tr>
           </thead>
           <tbody id="book-table-body"></tbody>
         </table>
       </div>
 
-      <nav class="pagination" aria-label="分页">
-        <button id="prev-page" type="button">上一页</button>
+      <nav class="pagination" aria-label="pagination">
+        <button id="prev-page" type="button">&#19978;&#19968;&#39029;</button>
         <div id="page-buttons" class="page-buttons"></div>
-        <button id="next-page" type="button">下一页</button>
+        <button id="next-page" type="button">&#19979;&#19968;&#39029;</button>
       </nav>
     </section>
 
@@ -89,7 +82,7 @@
       <div class="section-heading">
         <div>
           <p class="eyebrow">Summary</p>
-          <h2>类型统计</h2>
+          <h2>&#31867;&#22411;&#32479;&#35745;</h2>
         </div>
       </div>
       <div id="category-list" class="category-list"></div>
@@ -99,20 +92,9 @@
   <dialog id="book-dialog" class="book-dialog">
     <article id="book-detail" class="book-detail"></article>
     <form method="dialog">
-      <button type="submit">关闭</button>
+      <button type="submit">&#20851;&#38381;</button>
     </form>
   </dialog>
-
-  <template id="book-row-template">
-    <tr class="book-row">
-      <td class="book-id"></td>
-      <td class="book-title"></td>
-      <td class="book-author"></td>
-      <td class="book-category"></td>
-      <td class="book-price"></td>
-      <td><button class="detail-button" type="button">查看</button></td>
-    </tr>
-  </template>
 
   <script src="./app.js" defer></script>
 </body>
